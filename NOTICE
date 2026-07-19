@@ -1,0 +1,22 @@
+GF180MCU_for_LTspice
+Copyright 2026 VirtuChip.AI
+
+This product includes device models derived from the GlobalFoundries GF180MCU
+Open Source PDK (https://github.com/google/gf180mcu-pdk ; device models:
+https://github.com/google/globalfoundries-pdk-libs-gf180mcu_fd_pr),
+Copyright GlobalFoundries / Google LLC and the GF180MCU PDK contributors,
+licensed under the Apache License, Version 2.0.
+
+Modification statement:
+The original GF180MCU 3.3V primitive device models (nmos_3p3, pmos_3p3) are
+distributed as .subckt wrappers around binned, corner-based, statistically-
+parameterised BSIM4 cards. In this derived work those models were COLLAPSED
+into flat BSIM4 (level 54) .model cards:
+  - corner: typical (t)
+  - statistics / mismatch: disabled (global and mismatch = 0)
+  - fit bin: L in [0.28, 0.5] um, W in [0.5, 1.2] um (device bin 4)
+  - binning length/width correction terms retained (binunit=2)
+See README.md for validation results and usage limitations.
+
+You may obtain a copy of the Apache License, Version 2.0, in the LICENSE file
+or at http://www.apache.org/licenses/LICENSE-2.0
