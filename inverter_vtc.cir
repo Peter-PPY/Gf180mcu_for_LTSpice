@@ -1,0 +1,18 @@
+* GF180MCU 3.3V flat model -- CMOS inverter DC transfer characteristic
+* PMOS sized 2x NMOS for roughly symmetric switching. Units: meters.
+.include ../gf180_ptm_style.lib
+
+Vdd vdd 0 3.3
+Vin in  0 0
+
+M1 out in 0   0   gf180_nmos_3p3 L=0.28e-6 W=1e-6
+M2 out in vdd vdd gf180_pmos_3p3 L=0.28e-6 W=2e-6
+
+.dc Vin 0 3.3 0.02
+
+* --- LTspice: after Run, add trace V(out) ---
+*.control
+*run
+*plot v(out)
+*.endc
+.end
