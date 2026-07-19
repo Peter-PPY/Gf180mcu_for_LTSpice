@@ -1,0 +1,18 @@
+* GF180MCU 3.3V flat model -- NMOS Id-Vd family curves
+* Runs in LTspice (open as netlist, Run) and ngspice
+* GF180 is drawn in METERS (native units)
+.include ../gf180_ptm_style.lib
+
+M1 d g 0 0 gf180_nmos_3p3 L=0.28e-6 W=1e-6
+Vd d 0 3.3
+Vg g 0 0
+
+* Vd swept 0->3.3V, for Vg = 1.1,1.65,2.2,2.75,3.3V
+.dc Vd 0 3.3 0.05 Vg 1.1 3.3 0.55
+
+* --- LTspice: after Run, add trace Id(M1) ---
+*.control
+*run
+*plot -i(Vd)
+*.endc
+.end
